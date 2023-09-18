@@ -1,71 +1,31 @@
-# simple-code-operator README
+# Simple Code Operator
 
-This is the README for your extension "simple-code-operator". After writing up a brief description, we recommend including the following sections.
+A simple code operation extension.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Code Tree View: Displays a tree view of the code structure in the current document.
+- Operations: Use the following shortcuts:
+  - Select node and navigate: Left mouse button or arrow keys (up/down).
+  - Expand/collapse node: Spacebar.
+  - Delete code: `Delete` key.
+  - Copy code: `Ctrl+C`.
+  - Open context menu: Right-click on a node.
+  - Focus on code tree view: `Ctrl+L`.
+  - Return to code position: `Enter` or `Esc` in the tree view.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+* `simple-code-operator.codeSeparator`:  Specifies the list of separators used to split the code. Default value: `[";"]`.
+* `simple-code-operator.selectedAreaColor`:  Specifies the background color of the code area when a node is selected. Default value: `"rgba(45, 77, 104, 0.2)"`.
+* `simple-code-operator.hiddenItem`:  Specifies the node types that should not be displayed in the tree view. Default value: `[]` (empty).
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+for testing version
 
 ---
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
