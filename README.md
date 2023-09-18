@@ -21,6 +21,9 @@ A simple code operation extension.
 * `simple-code-operator.hiddenItem`:  Specifies the node types that should not be displayed in the tree view. Default value: `[]` (empty).
 
 ## Release Notes
+### 0.0.2
+
+Processing icon cannot be loaded normally
 
 ### 0.0.1
 
