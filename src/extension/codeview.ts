@@ -40,7 +40,10 @@ export class CodeView implements WebviewViewProvider {
     let decorationType: TextEditorDecorationType | null;
 
     this.render();
-    this.build();
+    const timer = setTimeout(() => {
+      clearTimeout(timer);
+      this.build();
+    }, 300)
     this.view.webview.onDidReceiveMessage((str: string) => {
       const msg = JSON.parse(str) as Msg;
       switch (msg.type) {
@@ -139,6 +142,7 @@ export class CodeView implements WebviewViewProvider {
         <style id="color-style"></style>
       </head>
       <body>
+        <div id="app"></div>
         <script type="module" src="${getAssetUri('out/webview/index.js')}"></script>
       </body>
     </html>

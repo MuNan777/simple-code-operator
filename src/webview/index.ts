@@ -18,13 +18,10 @@ const setColor = () => {
 
 const init = () => {
   setColor();
-  const root = document.createElement('div');
-  root.id = 'app';
-  document.body.appendChild(root);
-  start(root);
+  start();
 };
 
-const start = (root: HTMLElement) => {
+const start = () => {
   createApp({
     setup () {
       return {};
@@ -32,7 +29,7 @@ const start = (root: HTMLElement) => {
     render () {
       return h(WebView);
     }
-  }).mount(root);
+  }).mount('#app');
 };
 
 init();
