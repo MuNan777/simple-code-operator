@@ -9,10 +9,12 @@
   "categories": [
     "Other"
   ],
+  "publisher": "MuNanCode",
   "activationEvents": [],
   "main": "./out/extension/index.js",
   "browser": "./out/extension/index.js",
   "icon": "./icon/icon.png",
+  "repository": "https://github.com/MuNan777/simple-code-operator",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
@@ -137,7 +139,6 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.2.1",
     "@rollup/plugin-terser": "^0.4.3",
-    "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
     "@types/vscode": "^1.82.0",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
@@ -145,8 +146,6 @@
     "@vitejs/plugin-vue": "^4.3.4",
     "@vscode/test-electron": "^2.3.4",
     "eslint": "^8.47.0",
-    "glob": "^10.3.3",
-    "mocha": "^10.2.0",
     "rimraf": "^5.0.1",
     "rollup": "^3.29.1",
     "rollup-plugin-typescript2": "^0.35.0",
