@@ -1,0 +1,166 @@
+{
+  "name": "simple-code-operator",
+  "displayName": "Simple Code Operator",
+  "description": "A simple code operation extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension/index.js",
+  "browser": "./out/extension/index.js",
+  "icon": "./icon/icon.png",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "simple-code-operator",
+          "title": "Code View",
+          "icon": "icon/icon-24.svg"
+        }
+      ]
+    },
+    "views": {
+      "simple-code-operator": [
+        {
+          "type": "webview",
+          "id": "simple-code-operator",
+          "name": "Code View"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "simple-code-operator.expandAllNodes",
+          "when": "view == simple-code-operator && simple-code-operator.expand-all == 0",
+          "group": "navigation"
+        },
+        {
+          "command": "simple-code-operator.collapseAllNodes",
+          "when": "view == simple-code-operator && simple-code-operator.expand-all == 1",
+          "group": "navigation"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "simple-code-operator.focusCodeView",
+        "title": "Look At Code View",
+        "category": "simple-code-operator"
+      },
+      {
+        "command": "simple-code-operator.expandAllNodes",
+        "title": "Expand all nodes",
+        "icon": "$(expand-all)",
+        "category": "simple-code-operator"
+      },
+      {
+        "command": "simple-code-operator.collapseAllNodes",
+        "title": "Collapse all nodes",
+        "icon": "$(collapse-all)",
+        "category": "simple-code-operator"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "simple-code-operator.focusCodeView",
+        "key": "Alt+L"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "simple-code-operator",
+      "properties": {
+        "simple-code-operator.codeSeparator": {
+          "type": "array",
+          "description": "Code separator",
+          "default": [
+            ";"
+          ]
+        },
+        "simple-code-operator.selectedAreaColor": {
+          "type": "string",
+          "description": "Selected area color",
+          "default": "rgba(45, 77, 104, 0.2)"
+        },
+        "simple-code-operator.hiddenItem": {
+          "type": "array",
+          "description": "Choose items to hide in the view",
+          "items": {
+            "type": "string",
+            "enum": [
+              "module",
+              "namespace",
+              "package",
+              "class",
+              "method",
+              "property",
+              "field",
+              "constructor",
+              "enum",
+              "interface",
+              "function",
+              "variable",
+              "constant",
+              "string",
+              "number",
+              "boolean",
+              "array",
+              "object",
+              "key",
+              "null",
+              "enummember",
+              "struct",
+              "event",
+              "operator",
+              "typeparameter"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run package",
+    "compile": "vite build && rollup -c rollup.config.prod.js",
+    "watch": "vite build --sourcemap --minify=false && rollup -c rollup.config.js",
+    "package": "vite build && rollup -c rollup.config.prod.js",
+    "lint": "eslint src --ext ts",
+    "compile-tests": "tsc -p . --outDir out",
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.82.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "@vitejs/plugin-vue": "^4.3.4",
+    "@vscode/test-electron": "^2.3.4",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.29.1",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.67.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9",
+    "vue-eslint-parser": "^9.3.1"
+  },
+  "dependencies": {
+    "@types/vscode-webview": "^1.57.2",
+    "@vscode/codicons": "^0.0.33",
+    "copy-to-clipboard": "^3.3.3",
+    "hotkeys-js": "^3.12.0",
+    "vue": "^3.3.4"
+  }
+}
