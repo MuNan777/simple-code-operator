@@ -1,6 +1,7 @@
 import { onMounted, onUnmounted, ref } from "vue"
 import { actionNodeHandlerType } from "../assets/utils"
 import { SymbolNode } from "../../extension/symbolnode"
+import { MsgType } from "../../common"
 
 const getContextMenuPosition = (event: MouseEvent) => {
   const target = document.getElementById('context-menu') as HTMLDivElement
@@ -47,13 +48,8 @@ const useContextmenu = (actionNodeHandler: actionNodeHandlerType) => {
     actionNodeHandler('show', _node)
   }
 
-  const deleteItem = () => {
-    actionNodeHandler('remove', node.value)
-    showContextMenu.value = false
-  }
-
-  const copyItem = () => {
-    actionNodeHandler('copy', node.value)
+  const contextMenuItemHandler = (type: MsgType) => {
+    actionNodeHandler(type, node.value)
     showContextMenu.value = false
   }
 
@@ -73,8 +69,7 @@ const useContextmenu = (actionNodeHandler: actionNodeHandlerType) => {
     showContextMenu,
     contextMenuPosition,
     contextmenuHandle,
-    deleteItem,
-    copyItem
+    contextMenuItemHandler
   }
 }
 

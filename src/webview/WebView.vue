@@ -76,6 +76,10 @@ export default defineComponent({
           break;
         case 'delete-down':
           changePathState()
+          break;
+        case 'comment-down':
+          changePathState()
+          break;
         case 'focus':
           window.focus()
           break;
@@ -107,8 +111,7 @@ export default defineComponent({
       showContextMenu,
       contextMenuPosition,
       contextmenuHandle,
-      deleteItem,
-      copyItem
+      contextMenuItemHandler
     } = useContextmenu(actionNodeHandler);
 
     watch(() => focusing.value, (newVal) => {
@@ -127,8 +130,7 @@ export default defineComponent({
       actionNodeHandler,
       changeHandle,
       contextmenuHandle,
-      deleteItem,
-      copyItem
+      contextMenuItemHandler
     };
   },
 });
@@ -145,8 +147,8 @@ export default defineComponent({
   <div v-else style="text-align: center;">
     No data, or acquisition failed
   </div>
-  <ContextMenu :showContextMenu="showContextMenu" :contextMenuPosition="contextMenuPosition" @delete="deleteItem"
-    @copy="copyItem">
+  <ContextMenu :showContextMenu="showContextMenu" :contextMenuPosition="contextMenuPosition"
+    @itemClick="contextMenuItemHandler">
   </ContextMenu>
 </template>
 <style lang="scss">

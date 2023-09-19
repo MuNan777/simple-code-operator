@@ -2,8 +2,8 @@ import { TextDocument, type DocumentSymbol, Range, Position } from "vscode";
 import { SymbolNode } from "./extension/symbolnode";
 import { config } from "./extension/config";
 
-export type MsgType = 'update' | 'refresh' | 'remove' | 'show' | 'selected' | 'focus' | 'esc' | 'copy' |
-  'copy-value' | 'get-file-path' | 'set-file-path' | 'clean-decoration' | 'set-active-path' | 'delete-down' | 'set-all-expanded' | 'set-expand-status'
+export type MsgType = 'update' | 'refresh' | 'remove' | 'show' | 'selected' | 'focus' | 'esc' | 'copy' | 'comment' |
+  'copy-value' | 'get-file-path' | 'set-file-path' | 'clean-decoration' | 'set-active-path' | 'delete-down' | 'comment-down' | 'set-all-expanded' | 'set-expand-status'
 export interface Msg {
   type: MsgType;
   value?: any;
@@ -97,4 +97,97 @@ export const getDeclarationArea = (document: TextDocument, range: Range) => {
   );
 
   return declarationRange;
+}
+
+export const getCommentSE = (ext: string | undefined, text: string | undefined) => {
+  if (ext) {
+    if (CommentType[ext]) {
+      return CommentType[ext]
+    }
+    if (ext === 'vue') {
+      if (text?.match(/<[\s\S]*\>[\s\S]*<\/[\s\S]*\>/)) {
+        return CommentType['html']
+      }
+      return CommentType['js']
+    }
+  }
+}
+
+export const CommentType: { [key: string]: { start: string, end: string } } = {
+  "js": {
+    start: "/*",
+    end: "*/"
+  },
+  "ts": {
+    start: "/*",
+    end: "*/"
+  },
+  "py": {
+    start: "'''",
+    end: "'''"
+  },
+  "java": {
+    start: "/*",
+    end: "*/"
+  },
+  "cpp": {
+    start: "/*",
+    end: "*/"
+  },
+  "html": {
+    start: "<!--",
+    end: "-->"
+  },
+  "css": {
+    start: "/*",
+    end: "*/"
+  },
+  "php": {
+    start: "/*",
+    end: "*/"
+  },
+  "ruby": {
+    start: "=begin",
+    end: "=end"
+  },
+  "swift": {
+    start: "/*",
+    end: "*/"
+  },
+  "sql": {
+    start: "/*",
+    end: "*/"
+  },
+  "go": {
+    start: "/*",
+    end: "*/"
+  },
+  "c": {
+    start: "/*",
+    end: "*/"
+  },
+  "h": {
+    start: "/*",
+    end: "*/"
+  },
+  "rb": {
+    start: "=begin",
+    end: "=end"
+  },
+  "json": {
+    start: "/*",
+    end: "*/"
+  },
+  "xml": {
+    start: "<!--",
+    end: "-->"
+  },
+  "sh": {
+    start: ": '",
+    end: "'"
+  },
+  "md": {
+    start: "<!--",
+    end: "-->"
+  }
 }

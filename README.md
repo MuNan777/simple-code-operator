@@ -11,10 +11,13 @@ A simple code operation extension.
 - Operations: Use the following shortcuts:
 
 - ![](images/gif/action.gif)
+  
+- ![](/images/gif/comment.gif)
   - Select node and navigate: Left mouse button or arrow keys (up/down).
   - Expand/collapse node:  `Space`.
   - Delete code: `Delete` key.
   - Copy code: `Ctrl+C`.
+  - Comment code: `/` key.
   - Open context menu: Right-click on a node.
   - Focus on code tree view: `Ctrl+L`.
   - Return to code position: `Enter` or `Esc` in the tree view.

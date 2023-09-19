@@ -13,7 +13,7 @@ import {
   Position,
 } from 'vscode';
 import { CodeTree } from './codetree';
-import { Msg, getDeclarationArea } from '../common';
+import { Msg, getCommentSE, getDeclarationArea } from '../common';
 import { config } from './config';
 import { ExpandStatus, setExpandStatus } from './commands';
 
@@ -84,6 +84,23 @@ export class CodeView implements WebviewViewProvider {
               this.postMessage({
                 type: 'delete-down'
               });
+            });
+          }
+          break;
+        case 'comment':
+          if (window.activeTextEditor) {
+            const document = window.activeTextEditor.document
+            const ext = document.fileName.split('.').pop();
+            const commentRange = getDeclarationArea(document, msg.value.range)
+            window.activeTextEditor.edit(editBuilder => {
+              const comment = getCommentSE(ext, document.getText(commentRange));
+              if (comment) {
+                editBuilder.insert(commentRange.start, comment.start);
+                editBuilder.insert(commentRange.end, comment.end);
+                this.postMessage({
+                  type: 'comment-down'
+                });
+              }
             });
           }
           break;

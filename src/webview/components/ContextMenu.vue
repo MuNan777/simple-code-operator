@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { MsgType } from '../../common'
 export default defineComponent({
   props: {
     showContextMenu: {
@@ -11,17 +12,31 @@ export default defineComponent({
       required: true
     }
   },
-  emits: ['delete', 'copy'],
+  emits: ['itemClick'],
   setup (props, { emit }) {
-    const deleteItem = () => {
-      emit('delete')
+    const itemClick = (type: MsgType) => {
+      emit('itemClick', type)
     }
-    const copyItem = () => {
-      emit('copy')
-    }
+    const items: { label: string, hotkey: string, type: MsgType }[] = [
+      {
+        label: 'Delete',
+        hotkey: 'delete',
+        type: 'remove'
+      },
+      {
+        label: 'Copy',
+        hotkey: 'ctrl+c',
+        type: 'copy'
+      },
+      {
+        label: 'Comment',
+        hotkey: '/',
+        type: 'comment'
+      }
+    ]
     return {
-      deleteItem,
-      copyItem
+      items,
+      itemClick
     }
   }
 })
@@ -29,14 +44,12 @@ export default defineComponent({
 <template>
   <div v-show="showContextMenu" class="context-menu" id="context-menu"
     :style="{ top: contextMenuPosition.y + 'px', left: contextMenuPosition.x + 'px' }">
-    <div @click="deleteItem" class="btn">
-      <span>Delete</span>
-      <span class="hotkey">delete</span>
-    </div>
-    <div @click="copyItem" class="btn">
-      <span>Copy</span>
-      <span class="hotkey">ctrl+c</span>
-    </div>
+    <template v-for="item of items">
+      <div @click="itemClick(item.type)" class="btn">
+        <span>{{ item.label }}</span>
+        <span class="hotkey">{{ item.hotkey }}</span>
+      </div>
+    </template>
   </div>
 </template>
 <style lang="scss">

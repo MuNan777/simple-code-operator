@@ -43,4 +43,9 @@ export const setHotKeys = (nodes: Ref, pathIndex: Ref, activePath: Ref, orderLis
     const node = findNodeByPathBfs(nodes.value, activePath.value)
     actionNodeHandler('copy', node)
   })
+
+  hotkeys('/', () => {
+    const node = findNodeByPathBfs(nodes.value, activePath.value)
+    actionNodeHandler('comment', node)
+  })
 }
