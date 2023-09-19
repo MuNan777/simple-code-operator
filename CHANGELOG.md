@@ -1,5 +1,7 @@
 
 
+## [0.0.4](https://github.com/MuNan777/simple-code-operator/compare/0.0.3...0.0.4) (2023-09-19)
+
 * feat Add release-it package and change the README.md (454fde8)
 * feat add release-it (36f0d31)
 

@@ -2,7 +2,7 @@
   "name": "simple-code-operator",
   "displayName": "Simple Code Operator",
   "description": "A simple code operation extension",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.82.0"
   },
