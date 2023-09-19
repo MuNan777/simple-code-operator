@@ -1,5 +1,6 @@
 
 
+* feat Add release-it package and change the README.md (454fde8)
 * feat add release-it (36f0d31)
 
 # Change Log
