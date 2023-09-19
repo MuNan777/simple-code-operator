@@ -133,9 +133,11 @@
     "package": "vite build && rollup -c rollup.config.prod.js",
     "lint": "eslint src --ext ts",
     "compile-tests": "tsc -p . --outDir out",
-    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint"
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
+    "release": "release-it"
   },
   "devDependencies": {
+    "@release-it/conventional-changelog": "^7.0.1",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.2.1",
     "@rollup/plugin-terser": "^0.4.3",
@@ -146,6 +148,7 @@
     "@vitejs/plugin-vue": "^4.3.4",
     "@vscode/test-electron": "^2.3.4",
     "eslint": "^8.47.0",
+    "release-it": "^16.1.5",
     "rimraf": "^5.0.1",
     "rollup": "^3.29.1",
     "rollup-plugin-typescript2": "^0.35.0",
