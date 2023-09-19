@@ -5,9 +5,14 @@ A simple code operation extension.
 ## Features
 
 - Code Tree View: Displays a tree view of the code structure in the current document.
+
+- ![](.\images\gif\base.gif)
+
 - Operations: Use the following shortcuts:
+
+- ![](.\images\gif\action.gif)
   - Select node and navigate: Left mouse button or arrow keys (up/down).
-  - Expand/collapse node: Spacebar.
+  - Expand/collapse node:  `Space`.
   - Delete code: `Delete` key.
   - Copy code: `Ctrl+C`.
   - Open context menu: Right-click on a node.
@@ -21,6 +26,11 @@ A simple code operation extension.
 * `simple-code-operator.hiddenItem`:  Specifies the node types that should not be displayed in the tree view. Default value: `[]` (empty).
 
 ## Release Notes
+
+### 0.0.3
+
+README.md Add .gif operation display
+
 ### 0.0.2
 
 Processing icon cannot be loaded normally
