@@ -6,13 +6,13 @@ A simple code operation extension.
 
 - Code Tree View: Displays a tree view of the code structure in the current document.
 
-- ![](https://images-1303041366.cos.ap-guangzhou.myqcloud.com/base.gif)
+- ![](images/gif/base.gif)
 
 - Operations: Use the following shortcuts:
 
-- ![](https://images-1303041366.cos.ap-guangzhou.myqcloud.com/action.gif)
+- ![](images/gif/action.gif)
   
-- ![](https://images-1303041366.cos.ap-guangzhou.myqcloud.com/comment.gif)
+- ![](/images/gif/comment.gif)
   - Select node and navigate: Left mouse button or arrow keys (up/down).
   - Expand/collapse node:  `Space`.
   - Delete code: `Delete` key.
